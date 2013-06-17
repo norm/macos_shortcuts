@@ -1,0 +1,13 @@
+# wrap columns
+78                              cmd-opt-ctrl-8
+Use Window Frame                cmd-opt-ctrl-0
+
+# function keys are for other things
+Unfold Current Block            cmd-D
+Fold Current Block              cmd-D
+Fold Selection                  cmd-D
+
+Next File Tab                   cmd-opt-right
+Previous File Tab               cmd-opt-left
+
+Search Project With AckMate...  cmd-shift-F
