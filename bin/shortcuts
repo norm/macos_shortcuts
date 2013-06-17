@@ -16,7 +16,7 @@ while ( my $file = readdir $dir ) {
     system
         'defaults',
         'delete',
-        $file,
+        ( $file eq 'global' ? '-globalDomain' : $file ),
         'NSUserKeyEquivalents';
     
     my $handle = FileHandle->new( sprintf '%s/%s', $directory, $file );
@@ -43,6 +43,19 @@ while ( my $file = readdir $dir ) {
         $shortcut =~ s{right}{\\U2192};
         $shortcut =~ s{down}{\\U2193};
         
+        $shortcut = '\Uf704' if $shortcut eq 'F1';
+        $shortcut = '\Uf705' if $shortcut eq 'F2';
+        $shortcut = '\Uf706' if $shortcut eq 'F3';
+        $shortcut = '\Uf707' if $shortcut eq 'F4';
+        $shortcut = '\Uf708' if $shortcut eq 'F5';
+        $shortcut = '\Uf709' if $shortcut eq 'F6';
+        $shortcut = '\Uf70a' if $shortcut eq 'F7';
+        $shortcut = '\Uf70b' if $shortcut eq 'F8';
+        $shortcut = '\Uf70c' if $shortcut eq 'F9';
+        $shortcut = '\Uf70d' if $shortcut eq 'F10';
+        $shortcut = '\Uf70e' if $shortcut eq 'F11';
+        $shortcut = '\Uf70f' if $shortcut eq 'F12';
+        
         if ( $shortcut eq $human ) {
             say sprintf "    %-30s %s", $menu_entry, $shortcut;
         }
@@ -54,7 +67,7 @@ while ( my $file = readdir $dir ) {
         system
             'defaults',
             'write',
-            $file,
+            ( $file eq 'global' ? '-globalDomain' : $file ),
             'NSUserKeyEquivalents',
             '-dict-add',
             $menu_entry,
