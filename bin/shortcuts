@@ -1,0 +1,65 @@
+#!/usr/bin/env perl
+use feature 'say';
+use FileHandle;
+
+my $directory = $ENV{'SHORTCUTS_DIRECTORY'}
+                        // sprintf "%s/%s", $ENV{'HOME'}, 'etc/shortcuts';
+
+
+opendir my($dir), $directory;
+while ( my $file = readdir $dir ) {
+    next if $file =~ m{^\.};
+    
+    say $file;
+    
+    # remove any existing shortcuts
+    system
+        'defaults',
+        'delete',
+        $file,
+        'NSUserKeyEquivalents';
+    
+    my $handle = FileHandle->new( sprintf '%s/%s', $directory, $file );
+    my $config = do { local $/; <$handle> };
+    
+    foreach my $line ( split m{\n}, $config ) {
+        # remove comments
+        $line =~ s{#.*$}{};
+        
+        # entry and shortcut are separated by at least two spaces
+        my( $menu_entry, $shortcut ) = split m{\s{2,}}, $line;
+        
+        # skip blank or useless lines
+        next unless $menu_entry and $shortcut;
+        
+        # convert the shortcut if using human alternatives
+        my $human = $shortcut;
+        $shortcut =~ s{(cmd|command)-}{@};
+        $shortcut =~ s{(alt|opt(?:ion)?)-}{~};
+        $shortcut =~ s{shift-}{\$};
+        $shortcut =~ s{(control|ctrl)-}{^};
+        $shortcut =~ s{left}{\\U2190};
+        $shortcut =~ s{up}{\\U2191};
+        $shortcut =~ s{right}{\\U2192};
+        $shortcut =~ s{down}{\\U2193};
+        
+        if ( $shortcut eq $human ) {
+            say sprintf "    %-30s %s", $menu_entry, $shortcut;
+        }
+        else {
+            say sprintf "    %-30s %s # %s", $menu_entry, $shortcut, $human;
+        }
+        
+        # set new shortcut
+        system
+            'defaults',
+            'write',
+            $file,
+            'NSUserKeyEquivalents',
+            '-dict-add',
+            $menu_entry,
+            $shortcut;
+    }
+    
+    say '';
+}

@@ -1,0 +1,4 @@
+Select Next Tab                 cmd-opt-right
+Select Previous Tab             cmd-opt-left
+Disable JavaScript              cmd-opt-J
+Disable Styles                  cmd-opt-C
