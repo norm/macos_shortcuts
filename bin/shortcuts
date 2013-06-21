@@ -42,19 +42,18 @@ while ( my $file = readdir $dir ) {
         $shortcut =~ s{up}{\\U2191};
         $shortcut =~ s{right}{\\U2192};
         $shortcut =~ s{down}{\\U2193};
-        
-        $shortcut = '\Uf704' if $shortcut eq 'F1';
-        $shortcut = '\Uf705' if $shortcut eq 'F2';
-        $shortcut = '\Uf706' if $shortcut eq 'F3';
-        $shortcut = '\Uf707' if $shortcut eq 'F4';
-        $shortcut = '\Uf708' if $shortcut eq 'F5';
-        $shortcut = '\Uf709' if $shortcut eq 'F6';
-        $shortcut = '\Uf70a' if $shortcut eq 'F7';
-        $shortcut = '\Uf70b' if $shortcut eq 'F8';
-        $shortcut = '\Uf70c' if $shortcut eq 'F9';
-        $shortcut = '\Uf70d' if $shortcut eq 'F10';
-        $shortcut = '\Uf70e' if $shortcut eq 'F11';
-        $shortcut = '\Uf70f' if $shortcut eq 'F12';
+        $shortcut =~ s{\bF1\b}{\\Uf704};
+        $shortcut =~ s{\bF2\b}{\\Uf705};
+        $shortcut =~ s{\bF3\b}{\\Uf706};
+        $shortcut =~ s{\bF4\b}{\\Uf707};
+        $shortcut =~ s{\bF5\b}{\\Uf708};
+        $shortcut =~ s{\bF6\b}{\\Uf709};
+        $shortcut =~ s{\bF7\b}{\\Uf70a};
+        $shortcut =~ s{\bF8\b}{\\Uf70b};
+        $shortcut =~ s{\bF9\b}{\\Uf70c};
+        $shortcut =~ s{\bF10\b}{\\Uf70d};
+        $shortcut =~ s{\bF11\b}{\\Uf70e};
+        $shortcut =~ s{\bF12\b}{\\Uf70f};
         
         if ( $shortcut eq $human ) {
             say sprintf "    %-30s %s", $menu_entry, $shortcut;
