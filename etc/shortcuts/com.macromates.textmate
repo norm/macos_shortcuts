@@ -7,6 +7,10 @@ Unfold Current Block            cmd-D
 Fold Current Block              cmd-D
 Fold Selection                  cmd-D
 
+Insert Scratch Snippet          cmd-ctrl-opt-shift-S
+Sort Lines in Selection         ctrl-opt-S
+Sort Lines & Remove Duplicates  ctrl-opt-shift-S
+
 Next File Tab                   cmd-opt-right
 Previous File Tab               cmd-opt-left
 
