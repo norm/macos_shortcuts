@@ -1,0 +1,11 @@
+Reply                           cmd-shift-R
+Reply All                       cmd-R
+
+# fonts, no; new email, yes
+Get All New Mail                cmd-T
+
+New Mailbox…                    cmd-shift-N
+New Smart Mailbox…              cmd-opt-N
+
+Take All Accounts Offline       cmd-opt-O
+Take All Accounts Online        cmd-O
