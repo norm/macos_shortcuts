@@ -1,6 +1,6 @@
 Open New Terminal Window        F5
-Toggle nvALT                    F11
-Toggle Things                   F12
+Toggle nvALT                    cmd+F11
+Toggle Things                   cmd+F12
 
 # Y U NO WORK?!
 Show Character Viewer           ctrl-F1
