@@ -34,14 +34,6 @@ while ( my $file = readdir $dir ) {
         
         # convert the shortcut if using human alternatives
         my $human = $shortcut;
-        $shortcut =~ s{(cmd|command)-}{@};
-        $shortcut =~ s{(alt|opt(?:ion)?)-}{~};
-        $shortcut =~ s{shift-}{\$};
-        $shortcut =~ s{(control|ctrl)-}{^};
-        $shortcut =~ s{left}{\\U2190};
-        $shortcut =~ s{up}{\\U2191};
-        $shortcut =~ s{right}{\\U2192};
-        $shortcut =~ s{down}{\\U2193};
         $shortcut =~ s{\bF1\b}{\\Uf704};
         $shortcut =~ s{\bF2\b}{\\Uf705};
         $shortcut =~ s{\bF3\b}{\\Uf706};
@@ -54,6 +46,14 @@ while ( my $file = readdir $dir ) {
         $shortcut =~ s{\bF10\b}{\\Uf70d};
         $shortcut =~ s{\bF11\b}{\\Uf70e};
         $shortcut =~ s{\bF12\b}{\\Uf70f};
+        $shortcut =~ s{(cmd|command)[+-]}{@};
+        $shortcut =~ s{(alt|opt(?:ion)?)[+-]}{~};
+        $shortcut =~ s{shift[+-]}{\$};
+        $shortcut =~ s{(control|ctrl)[+-]}{^};
+        $shortcut =~ s{left}{\\U2190};
+        $shortcut =~ s{up}{\\U2191};
+        $shortcut =~ s{right}{\\U2192};
+        $shortcut =~ s{down}{\\U2193};
         
         if ( $shortcut eq $human ) {
             say sprintf "    %-30s %s", $menu_entry, $shortcut;
