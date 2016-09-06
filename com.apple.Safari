@@ -1,4 +1,11 @@
+# prefer arrows to curly braces
 Select Next Tab                 cmd-opt-right
 Select Previous Tab             cmd-opt-left
+Show Next Tab                   cmd-opt-right
+Show Previous Tab               cmd-opt-left
+
+Move Tab to New Window          cmd-opt-down
+
+
+# used often enough to warrant a shortcut
 Disable JavaScript              cmd-opt-J
-Disable Styles                  cmd-opt-C
