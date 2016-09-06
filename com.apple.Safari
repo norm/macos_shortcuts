@@ -9,3 +9,4 @@ Move Tab to New Window          cmd-opt-down
 
 # used often enough to warrant a shortcut
 Disable JavaScript              cmd-opt-J
+Disable Styles                  cmd-opt-C
