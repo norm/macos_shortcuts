@@ -5,7 +5,8 @@ Show Next Tab                   cmd-opt-right
 Show Previous Tab               cmd-opt-left
 
 Move Tab to New Window          cmd-opt-down
-
+Pin Tab                         cmd-opt-p
+Unpin Tab                       cmd-opt-p
 
 # used often enough to warrant a shortcut
 Disable JavaScript              cmd-opt-J
