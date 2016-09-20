@@ -3,6 +3,7 @@ Reply All                       cmd-R
 
 # fonts, no; new email, yes
 Get All New Mail                cmd-T
+Get New Mail                    cmd-T
 
 New Mailbox…                    cmd-shift-N
 New Smart Mailbox…              cmd-opt-N
