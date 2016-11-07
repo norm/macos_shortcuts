@@ -1,2 +1,4 @@
 Select Next Tab                 cmd-opt-right
+Show Next Tab                   cmd-opt-right
 Select Previous Tab             cmd-opt-left
+Show Previous Tab               cmd-opt-left
